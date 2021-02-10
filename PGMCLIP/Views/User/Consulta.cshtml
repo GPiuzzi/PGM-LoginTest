@@ -1,0 +1,115 @@
+﻿@model IEnumerable<PGMCLIP.Models.User>
+
+@{ ViewBag.Title = "Consulta"; }
+<link href="~/Content/custom.css" rel="stylesheet" />
+<script src="~/Content/custom.js"></script>
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            <h2>¡Consulta de Usuarios!</h2>
+        </div>
+    </div>
+
+    <div class="row" id="users">
+        <div class="col-lg-6">
+
+            @using (Html.BeginForm("Consulta", "User", FormMethod.Get))
+            {
+<p>Buscar: @Html.TextBox("Search")<input type="submit" value="Search" /></p>}
+
+            <table class="table-bordered table-striped table table-dark">
+
+                <thead>
+
+                    <tr>
+                        <th class="text-center c-table__cell c-table__cell--head">
+
+                            @Html.ActionLink("id_usuario", "Consulta", "User", new { orden = "id_usuario", val = ViewBag.val }, null)
+                        </th>
+
+                        <th class="text-center c-table__cell c-table__cell--head">
+
+                            @Html.ActionLink("Usuario", "Consulta", "User", new { orden = "usuario", val = ViewBag.val }, null)
+                        </th>
+
+
+                        <th class="text-center c-table__cell c-table__cell--head">
+
+                            @Html.ActionLink("Nombre", "Consulta", "User", new { orden = "nombre", val = ViewBag.val }, null)
+                        </th>
+
+
+                        <th class="text-center c-table__cell c-table__cell--head">
+
+                            @Html.ActionLink("Apellido", "Consulta", "User", new { orden = "direccion", val = ViewBag.val }, null)
+                        </th>
+
+
+                        <th class="text-center c-table__cell c-table__cell--head">
+
+                            @Html.ActionLink("Direccion", "Consulta", "User", new { orden = "direccion", val = ViewBag.val }, null)
+                        </th>
+
+
+                        <th class="text-center c-table__cell c-table__cell--head">
+
+                            @Html.ActionLink("Telefono", "Consulta", "User", new { orden = "telefono", val = ViewBag.val }, null)
+                        </th>
+
+
+                        <th class="text-center c-table__cell c-table__cell--head">
+
+                            @Html.ActionLink("Mail", "Consulta", "User", new { orden = "mail", val = ViewBag.val }, null)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    @foreach (var usuario in Model)
+                    {
+                        //   {@Url.Action("Consulta", "User");
+
+        <tr class=" text-center">
+            <td>
+                @usuario.id_usuario
+            </td>
+            <td>
+                @usuario.usuario
+            </td>
+            <td>
+                @usuario.nombre
+            </td>
+            <td>
+                @usuario.apellido
+            </td>
+            <td>
+                @usuario.direccion
+            </td>
+            <td>
+                @usuario.telefono
+            </td>
+            <td>
+                @usuario.mail
+
+            </td>
+            <td>
+                <a href="@Url.Action("Update", "User", new { @id_usuario = usuario.id_usuario })" class="btn btn-warning m-1">Modificar</a>
+
+                <a href="@Url.Action("Delete", "User", new { @id_usuario = usuario.id_usuario })" class="btn btn-danger m-1">Eliminar</a>
+            </td>
+        </tr>
+}
+                </tbody>
+            </table>
+            <br>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+          

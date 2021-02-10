@@ -1,0 +1,51 @@
+﻿@model PGMCLIP.Models.tablaConfig
+@{
+    ViewBag.Title = "Modificar PDF ";
+}
+
+<div class="row">
+    <div class="col-md-12">
+
+    </div>
+</div>
+@using (Html.BeginForm())
+{@Html.HiddenFor(Model => Model.id_config)
+<div class="row">
+    <div class="col-lg-6">
+
+        <div class="form-horizontal">
+            <div class="text-right">
+                <br>
+
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(x => x.font)
+                <label class="col-sm-6 control-label">Fuente</label>
+
+            </div>
+
+            <div class="form-group">
+
+                @Html.EditorFor(x => x.color)
+                <label class="col-sm-6 control-label">Color</label>
+
+            </div>
+
+            <div class="form-group">
+                @Html.EditorFor(x => x.size)
+                <label class="col-sm-6 control-label">Tamaño</label>
+
+            </div>
+
+            <div>
+                <button id="actualizar" class="btn btn-success" type="submit">
+                    Actualizar tabla
+                </button>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+}

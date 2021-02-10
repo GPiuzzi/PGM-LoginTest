@@ -1,0 +1,60 @@
+﻿@model IEnumerable<PGMCLIP.Models.tablaConfig>
+
+@{ ViewBag.Title = "Tabla de configuración - Modificar PDF"; }
+<link href="~/Content/custom.css" rel="stylesheet" />
+<script src="~/Content/custom.js"></script>
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            <h2>¡Tabla de configuración - Modificar PDF!</h2>
+        </div>
+    </div>
+
+    <div class="row" id="users">
+        <div class="col-lg-6">
+            <form>
+                @using (Html.BeginForm("Configuracion", "Config", FormMethod.Get))
+                {
+
+                    <table class="table-bordered table-striped table table-dark">
+
+                        <thead>
+
+                            <tr>
+                                <th class="text-center c-table__cell c-table__cell--head">
+
+                                    Id_Config
+                                </th>
+
+                                <th class="text-center c-table__cell c-table__cell--head">
+
+                                    Fuente
+                                </th>
+
+
+                                <th class="text-center c-table__cell c-table__cell--head">
+
+                                    Color
+                                </th>
+
+
+                                <th class="text-center c-table__cell c-table__cell--head">
+                                    Tamaño
+
+
+                                <th><a href="@Url.Action("Modificar", "Config", new { @id_config = 0 })" class="btn btn-success-1">Modificar</a></th>
+                            </tr>
+
+                        </thead>
+
+
+                    </table>
+                }
+
+                <button type="submit" class=" btn-block" onclick="location.href = 'https://localhost:44313/User/ReportePDF';">Generar reporte PDF</button>
+            </form>   
+
+        </div>
+    </div>
+
+</div>

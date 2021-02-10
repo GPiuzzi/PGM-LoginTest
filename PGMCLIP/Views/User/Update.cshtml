@@ -1,0 +1,100 @@
+﻿@model PGMCLIP.Models.User
+@{
+    ViewBag.Title = "Modificar Usuarios ";
+}
+
+<div class="row">
+    <div class="col-md-12">
+
+    </div>
+</div>
+@using (Html.BeginForm())
+{@Html.HiddenFor(Model => Model.id_usuario)
+<div class="row">
+    <div class="col-lg-6">
+
+        <div class="form-horizontal">
+            <div class="text-right">
+                <br>
+                <h3>Datos del usuario @ViewBag.Nombre</h3>
+                <br>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Usuario</label>
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(model => model.usuario, htmlAttributes: new { @class = "form-control", @id = "usuario" })
+                    @Html.ValidationMessageFor(model => model.usuario)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Nombre</label>
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(model => model.nombre, htmlAttributes: new { @class = "form-control", @id = "nombre" })
+                    @Html.ValidationMessageFor(model => model.nombre)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Apellido</label>
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(model => model.apellido, htmlAttributes: new { @class = "form-control", @id = "apellido" })
+                    @Html.ValidationMessageFor(model => model.apellido)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Dirección</label>
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(model => model.direccion, htmlAttributes: new { @class = "form-control", @id = "dirección" })
+                    @Html.ValidationMessageFor(model => model.direccion)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Teléfono</label>
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(model => model.telefono, htmlAttributes: new { @class = "form-control", @id = "teléfono" })
+                    @Html.ValidationMessageFor(model => model.telefono)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">E-Mail</label>
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(model => model.mail, htmlAttributes: new { @class = "form-control", @id = "mail" })
+                    @Html.ValidationMessageFor(model => model.mail)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Contraseña</label>
+                <div class="col-sm-6">
+                    @Html.PasswordFor(model => model.contraseña, htmlAttributes: new
+               {
+                   @class = "form-control",
+                   @id = "Contraseña"
+               })
+                    @Html.ValidationMessageFor(model => model.nombre)
+                </div>
+            </div>
+            <div >
+            @if (Model.id_usuario == 0)
+            {
+                <a href="@Url.Action("Consulta", "User")" class="btn btn-sucess m-1">Ayuda</a>
+            }
+            else
+            { <button id="actualizar" class="btn btn-primary" type="submit">
+                    Actualizar datos
+                </button>}
+</div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</div>
+}
+
+           
+
+
